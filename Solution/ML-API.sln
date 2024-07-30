@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sln", ".sln", "{A58076F3-34B4-418E-B82D-3DDCEAB668FA}"
+	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
+		..\Directory.Build.Props = ..\Directory.Build.Props
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Tests", "1 - Tests", "{F4DAAE27-EC62-48C0-8D32-442E49262593}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - APIs", "2 - APIs", "{064ACC16-E646-4CF9-BEDE-083AB4063163}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Models", "3 - Models", "{9966F110-0E05-4A13-BCF2-BB7B10A56225}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Models.Classifications.Sex", "..\Source\Models\HeBianGu.Models.Classifications.Sex\HeBianGu.Models.Classifications.Sex.csproj", "{163AD845-F91B-42A4-BBB5-B680211129DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Tests.Main", "..\Source\Tests\HeBianGu.Tests.Main\HeBianGu.Tests.Main.csproj", "{5F9FCD03-7A7B-49D5-8E58-CBD389DE5484}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{163AD845-F91B-42A4-BBB5-B680211129DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{163AD845-F91B-42A4-BBB5-B680211129DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{163AD845-F91B-42A4-BBB5-B680211129DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{163AD845-F91B-42A4-BBB5-B680211129DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F9FCD03-7A7B-49D5-8E58-CBD389DE5484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F9FCD03-7A7B-49D5-8E58-CBD389DE5484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F9FCD03-7A7B-49D5-8E58-CBD389DE5484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F9FCD03-7A7B-49D5-8E58-CBD389DE5484}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{163AD845-F91B-42A4-BBB5-B680211129DD} = {9966F110-0E05-4A13-BCF2-BB7B10A56225}
+		{5F9FCD03-7A7B-49D5-8E58-CBD389DE5484} = {F4DAAE27-EC62-48C0-8D32-442E49262593}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5A10AA9D-F17B-4974-B7A2-49C42F455353}
+	EndGlobalSection
+EndGlobal
