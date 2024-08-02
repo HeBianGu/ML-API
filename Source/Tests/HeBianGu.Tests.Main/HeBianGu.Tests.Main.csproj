@@ -3,12 +3,12 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Models\HeBianGu.Models.Classifications.Emotion\HeBianGu.Models.Classifications.Emotion.csproj" />
     <ProjectReference Include="..\..\Models\HeBianGu.Models.Classifications.Sex\HeBianGu.Models.Classifications.Sex.csproj" />
   </ItemGroup>
 

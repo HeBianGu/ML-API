@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:HeBianGu.Tests.Main"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="btn" Content="选择一张图片" FontSize="30" Click="Button_Click"/>
-    </Grid>
+    <UniformGrid>
+        <Button Content="性别检测" FontSize="30" Click="Button_Click"/>
+        <Button Content="情感检测" FontSize="30" Click="Button_Click_1"/>
+    </UniformGrid>
 </Window>

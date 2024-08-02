@@ -16,9 +16,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - APIs", "2 - APIs", "{06
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Models", "3 - Models", "{9966F110-0E05-4A13-BCF2-BB7B10A56225}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Models.Classifications.Sex", "..\Source\Models\HeBianGu.Models.Classifications.Sex\HeBianGu.Models.Classifications.Sex.csproj", "{163AD845-F91B-42A4-BBB5-B680211129DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.Models.Classifications.Sex", "..\Source\Models\HeBianGu.Models.Classifications.Sex\HeBianGu.Models.Classifications.Sex.csproj", "{163AD845-F91B-42A4-BBB5-B680211129DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Tests.Main", "..\Source\Tests\HeBianGu.Tests.Main\HeBianGu.Tests.Main.csproj", "{5F9FCD03-7A7B-49D5-8E58-CBD389DE5484}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.Tests.Main", "..\Source\Tests\HeBianGu.Tests.Main\HeBianGu.Tests.Main.csproj", "{5F9FCD03-7A7B-49D5-8E58-CBD389DE5484}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Models.TinyYolov3", "..\Source\Models\HeBianGu.Models.TinyYolov3\HeBianGu.Models.TinyYolov3.csproj", "{B57CE4B2-6BDB-46AA-849D-F26750D01DB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Models.Classifications.Emotion", "..\Source\Models\HeBianGu.Models.Classifications.Emotion\HeBianGu.Models.Classifications.Emotion.csproj", "{90FFFCBF-36F4-4C37-A844-2047C6572CE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +38,14 @@ Global
 		{5F9FCD03-7A7B-49D5-8E58-CBD389DE5484}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F9FCD03-7A7B-49D5-8E58-CBD389DE5484}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F9FCD03-7A7B-49D5-8E58-CBD389DE5484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B57CE4B2-6BDB-46AA-849D-F26750D01DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B57CE4B2-6BDB-46AA-849D-F26750D01DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B57CE4B2-6BDB-46AA-849D-F26750D01DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B57CE4B2-6BDB-46AA-849D-F26750D01DB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90FFFCBF-36F4-4C37-A844-2047C6572CE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90FFFCBF-36F4-4C37-A844-2047C6572CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90FFFCBF-36F4-4C37-A844-2047C6572CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90FFFCBF-36F4-4C37-A844-2047C6572CE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +53,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{163AD845-F91B-42A4-BBB5-B680211129DD} = {9966F110-0E05-4A13-BCF2-BB7B10A56225}
 		{5F9FCD03-7A7B-49D5-8E58-CBD389DE5484} = {F4DAAE27-EC62-48C0-8D32-442E49262593}
+		{B57CE4B2-6BDB-46AA-849D-F26750D01DB7} = {9966F110-0E05-4A13-BCF2-BB7B10A56225}
+		{90FFFCBF-36F4-4C37-A844-2047C6572CE4} = {9966F110-0E05-4A13-BCF2-BB7B10A56225}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A10AA9D-F17B-4974-B7A2-49C42F455353}
