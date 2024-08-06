@@ -238,7 +238,7 @@ namespace HeBianGu.Tests.Main
                 double w = (bitmap.PixelWidth * 1.0 / bitmap.PixelHeight * 1.0) * this.ImageWidth;
 
                 double span = (this.ImageWidth - w) / 2;
-                drawingContext.DrawImage(this.ImageSource, new Rect(span, 0, w, this.ImageHeight));
+                drawingContext.DrawImage(this.ImageSource, new Rect(0, 0, w, this.ImageHeight));
                 drawingContext.DrawRectangle(null, new Pen(Brushes.Blue, 2), new Rect(0, 0, this.ImageWidth, this.ImageHeight));
 
                 foreach (var item in this.BoundingBoxs)
