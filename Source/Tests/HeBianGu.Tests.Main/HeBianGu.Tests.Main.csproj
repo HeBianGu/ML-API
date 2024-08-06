@@ -11,6 +11,7 @@
     <ProjectReference Include="..\..\Models\HeBianGu.Models.Classifications.Emotion\HeBianGu.Models.Classifications.Emotion.csproj" />
     <ProjectReference Include="..\..\Models\HeBianGu.Models.Classifications.Sex\HeBianGu.Models.Classifications.Sex.csproj" />
     <ProjectReference Include="..\..\Models\HeBianGu.Models.Detections.Eye\HeBianGu.Models.Detections.Eye.csproj" />
+    <ProjectReference Include="..\..\Models\HeBianGu.Models.TinyYolov2\HeBianGu.Models.TinyYolov2.csproj" />
   </ItemGroup>
 
 </Project>

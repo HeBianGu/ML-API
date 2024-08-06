@@ -1,4 +1,5 @@
-﻿using HeBianGu_Models_Detections_Eye;
+﻿using HeBianGu.Models.Data;
+using HeBianGu_Models_Detections_Eye;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 
@@ -11,7 +12,7 @@ namespace HeBianGu.Models.Detections.Eye
         /// </summary>
         /// <param name="imagePath"></param>
         /// <returns></returns>
-        public static List<BoundingBox> PredictObjects(string imagePath)
+        public static IEnumerable<IBoundingBox> PredictObjects(string imagePath)
         {
             var input = new EyeDetectMLModel.ModelInput { Image = MLImage.CreateFromFile(imagePath) };
             var modelOutput = EyeDetectMLModel.PredictEngine.Value.Predict(input);
@@ -24,9 +25,9 @@ namespace HeBianGu.Models.Detections.Eye
         /// <param name="output"></param>
         /// <param name="scoreThreshold"></param>
         /// <returns></returns>
-        private static List<BoundingBox> GetBoundingBoxes(EyeDetectMLModel.ModelOutput output, float scoreThreshold = 0.5f)
+        private static List<IBoundingBox> GetBoundingBoxes(EyeDetectMLModel.ModelOutput output, float scoreThreshold = 0.5f)
         {
-            var boundingBoxes = new List<BoundingBox>();
+            var boundingBoxes = new List<IBoundingBox>();
 
             if (output.PredictedBoundingBoxes == null || output.PredictedBoundingBoxes.Length == 0)
                 return boundingBoxes;
@@ -43,7 +44,7 @@ namespace HeBianGu.Models.Detections.Eye
                 var width = output.PredictedBoundingBoxes[i + 2] - x;
                 var height = output.PredictedBoundingBoxes[i + 3] - y;
 
-                var boundingBox = new BoundingBox
+                var boundingBox = new LabelBoundingBox
                 {
                     Label = label,
                     Confidence = score,
@@ -57,21 +58,6 @@ namespace HeBianGu.Models.Detections.Eye
             }
 
             return boundingBoxes;
-        }
-    }
-
-    public class BoundingBox
-    {
-        public string Label { get; set; }
-        public float Confidence { get; set; }
-        public float X { get; set; }
-        public float Y { get; set; }
-        public float Width { get; set; }
-        public float Height { get; set; }
-
-        public override string ToString()
-        {
-            return $"{Label} - {Confidence} :{X},{Y},{Width},{Height}";
         }
     }
 }

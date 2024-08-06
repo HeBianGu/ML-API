@@ -16,4 +16,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HeBianGu.Models.Data\HeBianGu.Models.Data.csproj" />
+  </ItemGroup>
 </Project>

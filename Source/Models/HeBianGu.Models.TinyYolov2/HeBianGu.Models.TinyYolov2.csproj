@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML" Version="$(MicrosoftMLVersion)" />
+    <PackageReference Include="Microsoft.ML.ImageAnalytics" Version="$(MicrosoftMLVersion)" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.8.1" />
+    <PackageReference Include="Microsoft.ML.OnnxTransformer" Version="$(MicrosoftMLVersion)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HeBianGu.Models.Data\HeBianGu.Models.Data.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="assets\Model\TinyYolo2_model.onnx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

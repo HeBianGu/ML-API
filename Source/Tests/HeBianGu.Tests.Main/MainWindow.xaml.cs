@@ -13,6 +13,8 @@ using Microsoft.Win32;
 using HeBianGu.Models.Classifications.Emotion;
 using HeBianGu.Models.Detections.Eye;
 using System.Collections.ObjectModel;
+using HeBianGu.Models.Data;
+using System.Globalization;
 
 namespace HeBianGu.Tests.Main
 {
@@ -81,9 +83,33 @@ namespace HeBianGu.Tests.Main
             {
                 return EyeDetection.PredictObjects(fileName);
             });
-            DetectView detectView = new DetectView() { Width = 600, Height = 600 };
+            DetectView detectView = new DetectView();
             detectView.ImageSource = new BitmapImage(new Uri(fileName));
-            detectView.BoundingBoxs = new ObservableCollection<BoundingBox>(result);
+            detectView.BoundingBoxs = new ObservableCollection<IBoundingBox>(result);
+            detectView.ImageWidth = 600;
+            detectView.ImageHeight = 600;
+            Window window = new Window();
+            window.Content = detectView;
+            window.ShowDialog();
+        }
+
+        private async void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            string fileName = OpenFileDialog();
+            if (fileName == null)
+                return;
+            var result = await Task.Run(() =>
+            {
+                return TinyYolov2Detection.PredictObjects(fileName);
+            });
+
+            var boxes = result.ToList();
+
+            DetectView detectView = new DetectView();
+            detectView.ImageSource = new BitmapImage(new Uri(fileName));
+            detectView.BoundingBoxs = new ObservableCollection<IBoundingBox>(result.SelectMany(x => x));
+            detectView.ImageWidth = 416;
+            detectView.ImageHeight = 416;
             Window window = new Window();
             window.Content = detectView;
             window.ShowDialog();
@@ -93,26 +119,26 @@ namespace HeBianGu.Tests.Main
     public class DetectView : FrameworkElement
     {
 
-        public ObservableCollection<BoundingBox> BoundingBoxs
+        public ObservableCollection<IBoundingBox> BoundingBoxs
         {
-            get { return (ObservableCollection<BoundingBox>)GetValue(BoundingBoxsProperty); }
+            get { return (ObservableCollection<IBoundingBox>)GetValue(BoundingBoxsProperty); }
             set { SetValue(BoundingBoxsProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty BoundingBoxsProperty =
-            DependencyProperty.Register("BoundingBoxs", typeof(ObservableCollection<BoundingBox>), typeof(DetectView), new FrameworkPropertyMetadata(default(ObservableCollection<BoundingBox>), (d, e) =>
+            DependencyProperty.Register("BoundingBoxs", typeof(ObservableCollection<IBoundingBox>), typeof(DetectView), new FrameworkPropertyMetadata(default(ObservableCollection<IBoundingBox>), (d, e) =>
             {
                 DetectView control = d as DetectView;
 
                 if (control == null) return;
 
-                if (e.OldValue is ObservableCollection<BoundingBox> o)
+                if (e.OldValue is ObservableCollection<IBoundingBox> o)
                 {
 
                 }
 
-                if (e.NewValue is ObservableCollection<BoundingBox> n)
+                if (e.NewValue is ObservableCollection<IBoundingBox> n)
                 {
 
                 }
@@ -149,25 +175,83 @@ namespace HeBianGu.Tests.Main
             }));
 
 
+        public double ImageWidth
+        {
+            get { return (double)GetValue(ImageWidthProperty); }
+            set { SetValue(ImageWidthProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ImageWidthProperty =
+            DependencyProperty.Register("ImageWidth", typeof(double), typeof(DetectView), new FrameworkPropertyMetadata(default(double), (d, e) =>
+            {
+                DetectView control = d as DetectView;
+
+                if (control == null) return;
+
+                if (e.OldValue is double o)
+                {
+
+                }
+
+                if (e.NewValue is double n)
+                {
+
+                }
+
+            }));
+
+
+        public double ImageHeight
+        {
+            get { return (double)GetValue(ImageHeightProperty); }
+            set { SetValue(ImageHeightProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ImageHeightProperty =
+            DependencyProperty.Register("ImageHeight", typeof(double), typeof(DetectView), new FrameworkPropertyMetadata(default(double), (d, e) =>
+            {
+                DetectView control = d as DetectView;
+
+                if (control == null) return;
+
+                if (e.OldValue is double o)
+                {
+
+                }
+
+                if (e.NewValue is double n)
+                {
+
+                }
+
+            }));
+
+
+
         protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
-
             if (this.ImageSource is BitmapImage bitmap)
             {
-                double w = (bitmap.PixelWidth * 1.0 / bitmap.PixelHeight * 1.0) * 600;
+                double w = (bitmap.PixelWidth * 1.0 / bitmap.PixelHeight * 1.0) * this.ImageWidth;
 
-                double span = (600 - w) / 2;
-                drawingContext.DrawImage(this.ImageSource, new Rect(span, 0, w, 600));
-                drawingContext.DrawRectangle(null, new Pen(Brushes.Blue, 2), new Rect(0, 0, 600, 600));
+                double span = (this.ImageWidth - w) / 2;
+                drawingContext.DrawImage(this.ImageSource, new Rect(span, 0, w, this.ImageHeight));
+                drawingContext.DrawRectangle(null, new Pen(Brushes.Blue, 2), new Rect(0, 0, this.ImageWidth, this.ImageHeight));
 
                 foreach (var item in this.BoundingBoxs)
                 {
-                    drawingContext.DrawRectangle(null, new Pen(Brushes.Red, 2), new Rect(item.X - span * 2, item.Y, item.Width, item.Height));
+                    drawingContext.DrawRectangle(null, new Pen(Brushes.Red, 2), new Rect(item.X, item.Y, item.Width, item.Height));
+                    //-span * 2
+                    if (item is ILabelBoundingBox label)
+                    {
+                        var format = new FormattedText(label.Label, CultureInfo.CurrentCulture, FlowDirection.LeftToRight, new Typeface(new FontFamily("微软雅黑"), FontStyles.Normal, FontWeights.Normal, FontStretches.Normal), 15.0, Brushes.Red, 96);
+                        drawingContext.DrawText(format, new Point(label.X, label.Y));
+                    }
                 }
             }
-
-
         }
     }
 }

@@ -24,7 +24,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.Models.TinyYolov3"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.Models.Classifications.Emotion", "..\Source\Models\HeBianGu.Models.Classifications.Emotion\HeBianGu.Models.Classifications.Emotion.csproj", "{90FFFCBF-36F4-4C37-A844-2047C6572CE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Models.Detections.Eye", "..\Source\Models\HeBianGu.Models.Detections.Eye\HeBianGu.Models.Detections.Eye.csproj", "{84243474-CB6C-4232-8D43-E7B7558B9AB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeBianGu.Models.Detections.Eye", "..\Source\Models\HeBianGu.Models.Detections.Eye\HeBianGu.Models.Detections.Eye.csproj", "{84243474-CB6C-4232-8D43-E7B7558B9AB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Models.TinyYolov2", "..\Source\Models\HeBianGu.Models.TinyYolov2\HeBianGu.Models.TinyYolov2.csproj", "{CD3AB5F0-FEDD-4C64-9843-35566E8A0036}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeBianGu.Models.Data", "..\Source\Models\HeBianGu.Models.Data\HeBianGu.Models.Data.csproj", "{8EB9353E-2E15-4ABD-8558-AB04F347221C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +56,14 @@ Global
 		{84243474-CB6C-4232-8D43-E7B7558B9AB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84243474-CB6C-4232-8D43-E7B7558B9AB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84243474-CB6C-4232-8D43-E7B7558B9AB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD3AB5F0-FEDD-4C64-9843-35566E8A0036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD3AB5F0-FEDD-4C64-9843-35566E8A0036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD3AB5F0-FEDD-4C64-9843-35566E8A0036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD3AB5F0-FEDD-4C64-9843-35566E8A0036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EB9353E-2E15-4ABD-8558-AB04F347221C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EB9353E-2E15-4ABD-8558-AB04F347221C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EB9353E-2E15-4ABD-8558-AB04F347221C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EB9353E-2E15-4ABD-8558-AB04F347221C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +74,8 @@ Global
 		{B57CE4B2-6BDB-46AA-849D-F26750D01DB7} = {9966F110-0E05-4A13-BCF2-BB7B10A56225}
 		{90FFFCBF-36F4-4C37-A844-2047C6572CE4} = {9966F110-0E05-4A13-BCF2-BB7B10A56225}
 		{84243474-CB6C-4232-8D43-E7B7558B9AB4} = {9966F110-0E05-4A13-BCF2-BB7B10A56225}
+		{CD3AB5F0-FEDD-4C64-9843-35566E8A0036} = {9966F110-0E05-4A13-BCF2-BB7B10A56225}
+		{8EB9353E-2E15-4ABD-8558-AB04F347221C} = {9966F110-0E05-4A13-BCF2-BB7B10A56225}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A10AA9D-F17B-4974-B7A2-49C42F455353}

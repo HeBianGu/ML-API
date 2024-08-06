@@ -1,5 +1,6 @@
 ﻿<Project>
   <PropertyGroup>
+    <MicrosoftMLVersion>3.0.1</MicrosoftMLVersion>
     <!--<UseWPF>true</UseWPF>-->
     <PackageIcon>logo.png</PackageIcon>
     <!--<TargetFrameworks>net48;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
